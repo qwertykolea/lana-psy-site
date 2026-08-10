@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">Психолог – Имя Фамилия</title>
-    <meta name="description" data-i18n="meta_desc" content="Профессиональная психологическая помощь. Бережная терапия, тревожность, отношения, самооценка.">
+    <title data-i18n="title">Психолог – Lana Le Vu</title>
+    <meta name="description" data-i18n="meta_desc" content="Lana Le Vu – психолог. Бережная терапия, тревожность, отношения, самооценка.">
     <style>
         * {
             margin: 0;
@@ -15,14 +15,14 @@
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             color: #3d3d3d;
-            background: #fdf8f2;
+            background: #f9f5f0; /* тёплый пастельный фон */
             line-height: 1.6;
         }
 
         header {
-            background: rgba(255, 248, 243, 0.92);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+            background: rgba(255, 248, 243, 0.94);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -50,6 +50,7 @@
             list-style: none;
             gap: 1.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -105,6 +106,7 @@
             font-size: 2rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #f0e2d8;
+            display: inline-block;
         }
 
         .hero {
@@ -119,16 +121,16 @@
         }
 
         .hero-photo {
-            flex: 0 0 160px;
+            flex: 0 0 150px;
         }
 
         .hero-photo img {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 3px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
         }
 
         .hero-text {
@@ -174,7 +176,7 @@
             text-align: center;
             line-height: 34px;
             margin-bottom: 0.8rem;
-            font-weight: 600;
+            font-weight: bold;
         }
 
         .price-list {
@@ -222,7 +224,7 @@
             color: #fff;
         }
 
-        /* форма обратной связи */
+        /* Форма обратной связи */
         .contact-form {
             background: #fff;
             padding: 2rem;
@@ -272,6 +274,90 @@
             font-weight: 500;
         }
 
+        /* Сертификаты */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cert-thumb {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 1px solid #e0d6cc;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #f9f5f0;
+        }
+
+        .cert-thumb:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+
+        /* Лайтбокс */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+        }
+
+        .lightbox-controls {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .lightbox-controls button {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .lightbox-controls button:hover {
+            background: #c88a7a;
+            color: #fff;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -301,12 +387,13 @@
 <body>
     <header>
         <nav>
-            <div class="logo" data-i18n="logo">Имя Фамилия</div>
+            <div class="logo">Lana Le Vu</div>
             <ul>
                 <li><a href="#about" data-i18n="nav_about">Обо мне</a></li>
                 <li><a href="#therapy" data-i18n="nav_therapy">Терапия</a></li>
                 <li><a href="#requests" data-i18n="nav_requests">Запросы</a></li>
                 <li><a href="#education" data-i18n="nav_education">Образование</a></li>
+                <li><a href="#certificates" data-i18n="nav_certificates">Сертификаты</a></li>
                 <li><a href="#price" data-i18n="nav_price">Цены</a></li>
                 <li><a href="#contacts" data-i18n="nav_contacts">Контакты</a></li>
                 <li class="lang-switcher">
@@ -318,19 +405,18 @@
     </header>
 
     <main class="container">
-        <!-- Hero с фото -->
+        <!-- Обо мне -->
         <section class="hero" id="about">
             <div class="hero-photo">
-                <!-- Замени images/photo.jpg на свою фотографию -->
-                <img src="images/photo.jpg" alt="Фото психолога">
+                <img src="images/photo.jpg" alt="Lana Le Vu">
             </div>
             <div class="hero-text">
-                <h1 data-i18n="hero_name">Психолог<br>Имя Фамилия</h1>
-                <p data-i18n="hero_text">Я помогаю взрослым людям справляться с тревогой, налаживать отношения и чувствовать себя увереннее. Работаю бережно, этично и с уважением к вашему темпу.</p>
+                <h1 data-i18n="hero_name">Lana Le Vu</h1>
+                <p data-i18n="hero_text">Дипломированный психолог с бережным подходом. Я помогаю взрослым людям справляться с тревогой, налаживать отношения и чувствовать уверенность в себе. Работаю этично, с уважением к вашему темпу и индивидуальности.</p>
             </div>
         </section>
 
-        <!-- Что такое терапия -->
+        <!-- Терапия -->
         <section id="therapy">
             <h2 data-i18n="therapy_title">Как проходит терапия</h2>
             <p data-i18n="therapy_intro">Терапия — это не волшебная таблетка, а путь, который мы проходим вместе. Вот основные этапы:</p>
@@ -338,68 +424,68 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3 data-i18n="step1_title">Знакомство</h3>
-                    <p data-i18n="step1_desc">Бесплатная 20-минутная консультация, где мы обсуждаем ваш запрос и решаем, подходим ли мы друг другу.</p>
+                    <p data-i18n="step1_desc">Бесплатная 20-минутная онлайн-встреча. Обсуждаем ваш запрос, я рассказываю о методах работы, и мы решаем, подходим ли друг другу.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3 data-i18n="step2_title">Исследование</h3>
-                    <p data-i18n="step2_desc">2–4 сессии для глубокого понимания ситуации, выявления повторяющихся паттернов и скрытых чувств.</p>
+                    <p data-i18n="step2_desc">2–4 сессии для глубокого анализа ситуации. Выявляем повторяющиеся сценарии, подавленные чувства и ваши истинные потребности.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3 data-i18n="step3_title">Основная работа</h3>
-                    <p data-i18n="step3_desc">Регулярные встречи, где мы меняем неэффективные стратегии, учимся новому отношению к себе и другим.</p>
+                    <p data-i18n="step3_desc">Регулярные встречи, где мы трансформируем неэффективные стратегии, учимся новому отношению к себе и выстраиваем здоровые границы.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3 data-i18n="step4_title">Завершение</h3>
-                    <p data-i18n="step4_desc">Закрепление результатов, подведение итогов и план самостоятельной поддержки после терапии.</p>
+                    <p data-i18n="step4_desc">Закрепляем результаты, подводим итоги и составляем план самостоятельной поддержки. Я остаюсь на связи при необходимости.</p>
                 </div>
             </div>
         </section>
 
-        <!-- С чем я работаю -->
+        <!-- Запросы -->
         <section id="requests">
             <h2 data-i18n="requests_title">С чем я работаю</h2>
-            <ul id="requests-list" style="list-style-type: none; padding-left: 0; margin-top: 1rem;">
-                <!-- Заполняется через JS -->
-            </ul>
-            <p style="margin-top: 1rem;"><em data-i18n="requests_note">Не работаю с зависимостями, расстройствами пищевого поведения и детьми. Если ваш запрос за пределами моей компетенции, я порекомендую коллег.</em></p>
+            <ul id="requests-list" style="list-style-type: none; padding-left: 0; margin-top: 1rem;"></ul>
+            <p style="margin-top: 1rem;"><em data-i18n="requests_note">Я не работаю с зависимостями, расстройствами пищевого поведения и детьми. Если ваш запрос выходит за пределы моей компетенции, я порекомендую проверенного коллегу.</em></p>
         </section>
 
         <!-- Образование -->
         <section id="education">
             <h2 data-i18n="education_title">Образование и квалификация</h2>
-            <ul id="education-list" style="list-style-type: none; padding-left: 0;">
-                <!-- Заполняется через JS -->
-            </ul>
+            <ul id="education-list" style="list-style-type: none; padding-left: 0;"></ul>
         </section>
 
-        <!-- Прайс-лист -->
+        <!-- Сертификаты -->
+        <section id="certificates">
+            <h2 data-i18n="certificates_title">Сертификаты</h2>
+            <div class="certificates-grid" id="certs-grid"></div>
+        </section>
+
+        <!-- Прайс -->
         <section id="price">
             <h2 data-i18n="price_title">Стоимость</h2>
-            <div class="price-list" id="price-container">
-                <!-- Динамически обновляется -->
-            </div>
-            <p style="margin-top: 1rem; font-size: 0.9em; color: #666;" data-i18n="price_note">Все цены указаны в евро. Возможна оплата наличными или переводом. Обсуждаем гибкие условия.</p>
+            <div class="price-list" id="price-container"></div>
+            <p style="margin-top: 1rem; font-size: 0.9em; color: #666;" data-i18n="price_note">Все цены указаны в евро. Оплата возможна наличными или банковским переводом. Для постоянных клиентов — скидка на пакет из 5 сессий.</p>
         </section>
 
-        <!-- Контакты и форма -->
+        <!-- Контакты -->
         <section id="contacts">
             <h2 data-i18n="contacts_title">Связь и соцсети</h2>
             <div class="social-links">
-                <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
-                <a href="https://wa.me/79001234567" target="_blank">WhatsApp</a>
-                <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
-                <a href="mailto:you@example.com">Email</a>
+                <a href="https://t.me/lanalevu" target="_blank">Telegram</a>
+                <a href="https://wa.me/491234567890" target="_blank">WhatsApp</a>
+                <a href="https://instagram.com/lanalevu.psy" target="_blank">Instagram</a>
+                <a href="mailto:lana@psy-qkol.eu">Email</a>
             </div>
 
             <div class="contact-form">
                 <h3 data-i18n="form_title">Записаться или задать вопрос</h3>
                 <form id="telegram-form">
-                    <input type="text" id="form-name" placeholder="Ваше имя" data-i18n-placeholder="form_name_placeholder" required>
-                    <input type="text" id="form-contact" placeholder="Email или телефон" data-i18n-placeholder="form_contact_placeholder" required>
-                    <textarea id="form-message" rows="4" placeholder="Ваше сообщение..." data-i18n-placeholder="form_message_placeholder" required></textarea>
+                    <input type="text" id="form-name" data-i18n-placeholder="form_name_placeholder" required>
+                    <input type="text" id="form-contact" data-i18n-placeholder="form_contact_placeholder" required>
+                    <textarea id="form-message" rows="4" data-i18n-placeholder="form_message_placeholder" required></textarea>
                     <button type="submit" data-i18n="form_submit">Отправить</button>
                 </form>
                 <div id="form-status" class="form-status"></div>
@@ -407,54 +493,66 @@
         </section>
     </main>
 
+    <!-- Лайтбокс для сертификатов -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-controls">
+            <button id="lightbox-prev">&#8249;</button>
+            <button id="lightbox-next">&#8250;</button>
+        </div>
+    </div>
+
     <footer>
-        <p data-i18n="footer">© 2026 Имя Фамилия. Психолог. Все права защищены.</p>
+        <p data-i18n="footer">© 2026 Lana Le Vu. Психолог. Все права защищены.</p>
     </footer>
 
     <script>
         // ================== МНОГОЯЗЫЧНОСТЬ ==================
         const translations = {
             ru: {
-                title: "Психолог – Имя Фамилия",
-                meta_desc: "Профессиональная психологическая помощь. Бережная терапия, тревожность, отношения, самооценка.",
-                logo: "Имя Фамилия",
+                title: "Психолог – Lana Le Vu",
+                meta_desc: "Lana Le Vu – дипломированный психолог. Помощь при тревоге, отношениях, самооценке. Бережная терапия онлайн и очно.",
                 nav_about: "Обо мне",
                 nav_therapy: "Терапия",
                 nav_requests: "Запросы",
                 nav_education: "Образование",
+                nav_certificates: "Сертификаты",
                 nav_price: "Цены",
                 nav_contacts: "Контакты",
-                hero_name: "Психолог<br>Имя Фамилия",
-                hero_text: "Я помогаю взрослым людям справляться с тревогой, налаживать отношения и чувствовать себя увереннее. Работаю бережно, этично и с уважением к вашему темпу.",
+                hero_name: "Lana Le Vu",
+                hero_text: "Дипломированный психолог с бережным подходом. Я помогаю взрослым людям справляться с тревогой, налаживать отношения и чувствовать уверенность в себе. Работаю этично, с уважением к вашему темпу и индивидуальности.",
                 therapy_title: "Как проходит терапия",
                 therapy_intro: "Терапия — это не волшебная таблетка, а путь, который мы проходим вместе. Вот основные этапы:",
                 step1_title: "Знакомство",
-                step1_desc: "Бесплатная 20-минутная консультация, где мы обсуждаем ваш запрос и решаем, подходим ли мы друг другу.",
+                step1_desc: "Бесплатная 20-минутная онлайн-встреча. Обсуждаем ваш запрос, я рассказываю о методах работы, и мы решаем, подходим ли друг другу.",
                 step2_title: "Исследование",
-                step2_desc: "2–4 сессии для глубокого понимания ситуации, выявления повторяющихся паттернов и скрытых чувств.",
+                step2_desc: "2–4 сессии для глубокого анализа ситуации. Выявляем повторяющиеся сценарии, подавленные чувства и ваши истинные потребности.",
                 step3_title: "Основная работа",
-                step3_desc: "Регулярные встречи, где мы меняем неэффективные стратегии, учимся новому отношению к себе и другим.",
+                step3_desc: "Регулярные встречи, где мы трансформируем неэффективные стратегии, учимся новому отношению к себе и выстраиваем здоровые границы.",
                 step4_title: "Завершение",
-                step4_desc: "Закрепление результатов, подведение итогов и план самостоятельной поддержки после терапии.",
+                step4_desc: "Закрепляем результаты, подводим итоги и составляем план самостоятельной поддержки. Я остаюсь на связи при необходимости.",
                 requests_title: "С чем я работаю",
                 requests_items: [
                     "✓ Тревожные состояния, панические атаки",
-                    "✓ Сложности в отношениях (партнёрских, семейных)",
+                    "✓ Сложности в отношениях (партнёрские, семейные)",
                     "✓ Низкая самооценка, неуверенность в себе",
-                    "✓ Эмоциональное выгорание, стресс",
-                    "✓ Проживание потери или расставания",
-                    "✓ Поиск себя, жизненный кризис",
-                    "✓ Психосоматические проявления"
+                    "✓ Эмоциональное выгорание, хронический стресс",
+                    "✓ Проживание утраты, расставания, кризисные периоды",
+                    "✓ Поиск себя, ощущение «не на своём месте»",
+                    "✓ Психосоматические симптомы (головные боли, напряжение)"
                 ],
-                requests_note: "Не работаю с зависимостями, расстройствами пищевого поведения и детьми. Если ваш запрос за пределами моей компетенции, я порекомендую коллег.",
+                requests_note: "Я не работаю с зависимостями, расстройствами пищевого поведения и детьми. Если ваш запрос выходит за пределы моей компетенции, я порекомендую проверенного коллегу.",
                 education_title: "Образование и квалификация",
                 education_items: [
-                    "<strong>2020</strong> — Магистратура по психологии, Название вуза",
-                    "<strong>2021</strong> — Когнитивно-поведенческая терапия, курс обучения 300 часов",
-                    "<strong>2022</strong> — Работа с травмой, EMDR-терапия (1 уровень)",
-                    "<strong>2023</strong> — Повышение квалификации «Психологическое консультирование пар»",
-                    "Личная терапия более 100 часов, регулярная супервизия"
+                    "<strong>2019</strong> — Магистр психологии, Берлинский университет им. Гумбольдта (M.Sc. Psychologie)",
+                    "<strong>2020</strong> — Сертификат «Когнитивно-поведенческая терапия», DGVT, Берлин",
+                    "<strong>2021</strong> — Тренинг «Работа с психологической травмой», EMDR (уровень 1 и 2)",
+                    "<strong>2022</strong> — Повышение квалификации «Системная семейная терапия», Институт системных решений",
+                    "<strong>2023</strong> — Курс «Телесно-ориентированная терапия», Берлинская академия психологии",
+                    "Более 150 часов личной терапии, регулярная супервизия (раз в 2 недели)"
                 ],
+                certificates_title: "Сертификаты",
                 price_title: "Стоимость",
                 price_items: [
                     { service: "Индивидуальная сессия (50 мин)", cost: "60 €" },
@@ -462,58 +560,60 @@
                     { service: "Онлайн-сессия (50 мин)", cost: "60 €" },
                     { service: "Первичная ознакомительная встреча (20 мин)", cost: "Бесплатно" }
                 ],
-                price_note: "Все цены указаны в евро. Возможна оплата наличными или переводом. Обсуждаем гибкие условия.",
+                price_note: "Все цены указаны в евро. Оплата возможна наличными или банковским переводом. Для постоянных клиентов — скидка на пакет из 5 сессий.",
                 contacts_title: "Связь и соцсети",
                 form_title: "Записаться или задать вопрос",
                 form_name_placeholder: "Ваше имя",
                 form_contact_placeholder: "Email или телефон",
                 form_message_placeholder: "Ваше сообщение...",
                 form_submit: "Отправить",
-                footer: "© 2026 Имя Фамилия. Психолог. Все права защищены.",
-                form_success: "Сообщение отправлено! Я свяжусь с вами.",
-                form_error: "Ошибка отправки. Попробуйте позже."
+                form_success: "Спасибо! Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.",
+                form_error: "Ошибка отправки. Пожалуйста, попробуйте ещё раз или напишите мне напрямую.",
+                footer: "© 2026 Lana Le Vu. Психолог. Все права защищены."
             },
             en: {
-                title: "Psychologist – First Last",
-                meta_desc: "Professional psychological support. Gentle therapy for anxiety, relationships, self-esteem.",
-                logo: "First Last",
+                title: "Psychologist – Lana Le Vu",
+                meta_desc: "Lana Le Vu – certified psychologist. Gentle therapy for anxiety, relationships, self-esteem. Online & in-person.",
                 nav_about: "About",
                 nav_therapy: "Therapy",
                 nav_requests: "Issues",
                 nav_education: "Education",
+                nav_certificates: "Certificates",
                 nav_price: "Pricing",
                 nav_contacts: "Contacts",
-                hero_name: "Psychologist<br>First Last",
-                hero_text: "I help adults cope with anxiety, build healthier relationships, and gain confidence. My approach is gentle, ethical, and respects your pace.",
+                hero_name: "Lana Le Vu",
+                hero_text: "Certified psychologist with a gentle, respectful approach. I help adults cope with anxiety, build healthier relationships, and gain lasting confidence. I work ethically, at your pace, and with deep respect for your individuality.",
                 therapy_title: "How therapy works",
                 therapy_intro: "Therapy is not a magic pill, but a journey we take together. Here are the main stages:",
                 step1_title: "Getting to know",
-                step1_desc: "A free 20-minute consultation where we discuss your concerns and decide if we're a good fit.",
+                step1_desc: "A free 20-minute online session. We discuss your concerns, I explain my methods, and we decide if we're a good fit.",
                 step2_title: "Exploration",
                 step2_desc: "2–4 sessions to deeply understand your situation, uncover recurring patterns and hidden feelings.",
                 step3_title: "Core work",
-                step3_desc: "Regular meetings where we change ineffective strategies and learn a new attitude toward yourself and others.",
+                step3_desc: "Regular meetings where we transform ineffective strategies, learn a new attitude toward yourself, and build healthy boundaries.",
                 step4_title: "Completion",
-                step4_desc: "Consolidation of results, summary, and a plan for independent support after therapy.",
+                step4_desc: "We consolidate results, summarize insights, and create a plan for independent support. I remain available when needed.",
                 requests_title: "Issues I work with",
                 requests_items: [
                     "✓ Anxiety, panic attacks",
                     "✓ Relationship difficulties (partner, family)",
                     "✓ Low self-esteem, lack of confidence",
-                    "✓ Burnout, stress",
-                    "✓ Grief, loss, separation",
-                    "✓ Life crisis, search for meaning",
-                    "✓ Psychosomatic symptoms"
+                    "✓ Burnout, chronic stress",
+                    "✓ Grief, loss, life transitions",
+                    "✓ Feeling 'stuck' or without purpose",
+                    "✓ Psychosomatic symptoms (headaches, tension)"
                 ],
-                requests_note: "I do not work with addictions, eating disorders, or children. If your request is outside my competence, I will recommend colleagues.",
+                requests_note: "I do not work with addictions, eating disorders, or children. If your request is outside my competence, I will recommend a trusted colleague.",
                 education_title: "Education & Qualifications",
                 education_items: [
-                    "<strong>2020</strong> — Master's in Psychology, University Name",
-                    "<strong>2021</strong> — Cognitive Behavioral Therapy, 300-hour training",
-                    "<strong>2022</strong> — Trauma work, EMDR (Level 1)",
-                    "<strong>2023</strong> — Advanced training 'Couples Counseling'",
-                    "Over 100 hours of personal therapy, regular supervision"
+                    "<strong>2019</strong> — M.Sc. Psychology, Humboldt University of Berlin",
+                    "<strong>2020</strong> — Certificate in Cognitive Behavioral Therapy, DGVT, Berlin",
+                    "<strong>2021</strong> — Trauma therapy training, EMDR (Level 1 & 2)",
+                    "<strong>2022</strong> — Advanced training 'Systemic Family Therapy', Berlin Institute",
+                    "<strong>2023</strong> — Body-oriented therapy course, Berlin Academy of Psychology",
+                    "Over 150 hours of personal therapy, regular supervision (bi-weekly)"
                 ],
+                certificates_title: "Certificates",
                 price_title: "Pricing",
                 price_items: [
                     { service: "Individual session (50 min)", cost: "€60" },
@@ -521,16 +621,16 @@
                     { service: "Online session (50 min)", cost: "€60" },
                     { service: "Initial consultation (20 min)", cost: "Free" }
                 ],
-                price_note: "All prices in euros. Payment via cash or bank transfer. Flexible conditions available.",
+                price_note: "All prices in euros. Payment via cash or bank transfer. Discount available for a package of 5 sessions for regular clients.",
                 contacts_title: "Contact & Social",
                 form_title: "Book a session or ask a question",
                 form_name_placeholder: "Your name",
                 form_contact_placeholder: "Email or phone",
                 form_message_placeholder: "Your message...",
                 form_submit: "Send",
-                footer: "© 2026 First Last. Psychologist. All rights reserved.",
-                form_success: "Message sent! I'll get back to you.",
-                form_error: "Sending failed. Please try again later."
+                form_success: "Thank you! Your message has been sent. I'll get back to you soon.",
+                form_error: "Sending failed. Please try again or contact me directly.",
+                footer: "© 2026 Lana Le Vu. Psychologist. All rights reserved."
             }
         };
 
@@ -541,7 +641,10 @@
             return browserLang.startsWith('ru') ? 'ru' : 'en';
         }
 
+        let currentLang = getCurrentLang();
+
         function applyTranslations(lang) {
+            currentLang = lang;
             const t = translations[lang];
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -554,23 +657,19 @@
                     }
                 }
             });
-            // placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.dataset.i18nPlaceholder;
                 if (t[key]) el.placeholder = t[key];
             });
 
-            // Динамические списки
             renderList('requests-list', t.requests_items);
             renderList('education-list', t.education_items);
 
-            // Прайс
             const priceContainer = document.getElementById('price-container');
             priceContainer.innerHTML = t.price_items.map(item =>
                 `<div class="price-item"><span>${item.service}</span><strong>${item.cost}</strong></div>`
             ).join('');
 
-            // Кнопки языка
             document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
@@ -586,16 +685,79 @@
             applyTranslations(lang);
         }
 
-        // Инициализация
-        const currentLang = getCurrentLang();
         applyTranslations(currentLang);
-
         document.getElementById('btn-ru').addEventListener('click', () => switchLang('ru'));
         document.getElementById('btn-en').addEventListener('click', () => switchLang('en'));
 
+        // ================== СЕРТИФИКАТЫ ==================
+        const certImages = [
+            'certs/cert1.jpg',
+            'certs/cert2.jpg',
+            'certs/cert3.jpg'
+            // Добавь свои файлы сюда
+        ];
+
+        let currentCertIndex = 0;
+        const certsGrid = document.getElementById('certs-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        function renderCerts() {
+            if (certImages.length === 0) {
+                certsGrid.innerHTML = '<p data-i18n="no_certs">Сертификаты скоро появятся.</p>';
+                return;
+            }
+            certsGrid.innerHTML = certImages.map((src, index) =>
+                `<img src="${src}" class="cert-thumb" data-index="${index}" alt="Сертификат">`
+            ).join('');
+
+            document.querySelectorAll('.cert-thumb').forEach(img => {
+                img.addEventListener('click', () => {
+                    currentCertIndex = parseInt(img.dataset.index);
+                    showLightbox(currentCertIndex);
+                });
+            });
+        }
+
+        function showLightbox(index) {
+            if (index < 0 || index >= certImages.length) return;
+            lightboxImg.src = certImages[index];
+            lightbox.classList.add('active');
+            currentCertIndex = index;
+        }
+
+        lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentCertIndex = (currentCertIndex - 1 + certImages.length) % certImages.length;
+            lightboxImg.src = certImages[currentCertIndex];
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentCertIndex = (currentCertIndex + 1) % certImages.length;
+            lightboxImg.src = certImages[currentCertIndex];
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') lightboxPrev.click();
+            else if (e.key === 'ArrowRight') lightboxNext.click();
+            else if (e.key === 'Escape') lightboxClose.click();
+        });
+
+        renderCerts();
+
         // ================== ОТПРАВКА В TELEGRAM ==================
-        const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN'; // <-- замени на свой токен
-        const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';     // <-- замени на свой chat id
+        const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN'; // ⚠️ замени на свой
+        const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';     // ⚠️ замени на свой
 
         const form = document.getElementById('telegram-form');
         const statusDiv = document.getElementById('form-status');
@@ -635,7 +797,7 @@
                     statusDiv.style.color = '#4CAF50';
                     form.reset();
                 } else {
-                    throw new Error(result.description || 'Ошибка');
+                    throw new Error(result.description || 'Unknown error');
                 }
             } catch (error) {
                 console.error(error);
